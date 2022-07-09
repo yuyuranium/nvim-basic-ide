@@ -5,6 +5,7 @@ end
 
 local servers = {
   "sumneko_lua",
+  "clangd",
   -- I don't use these language servers
   -- "cssls",
   -- "html",
