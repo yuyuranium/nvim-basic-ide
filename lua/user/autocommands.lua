@@ -49,13 +49,13 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "c", "cpp", "verilog", "systemverilog" },
   callback = function()
-    vim.opt.colorcolumn = 80
+    vim.opt.colorcolumn = { 80 }
   end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit" },
   callback = function()
-    vim.opt.colorcolumn = 72
+    vim.opt.colorcolumn = { 72 }
   end,
 })
