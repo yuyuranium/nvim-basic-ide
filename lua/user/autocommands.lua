@@ -44,3 +44,18 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
   end,
 })
+
+-- Auto colorcolumn for some filetypes
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "c", "cpp", "verilog", "systemverilog" },
+  callback = function()
+    vim.opt.colorcolumn = 80
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "gitcommit" },
+  callback = function()
+    vim.opt.colorcolumn = 72
+  end,
+})
