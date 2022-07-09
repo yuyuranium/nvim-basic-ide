@@ -21,11 +21,10 @@ configs.setup({
 	autopairs = {
 		enable = true,
 	},
-	indent = { enable = true, disable = { "python", "css" } },
+	indent = { enable = true, disable = { "cpp", "c", "python", "css" } },
 
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
 	},
-
 })
