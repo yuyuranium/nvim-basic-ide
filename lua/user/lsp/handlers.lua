@@ -22,6 +22,7 @@ M.setup = function()
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 	end
 
+<<<<<<< HEAD
 	local config = {
 		virtual_text = false, -- disable virtual text
 		signs = {
@@ -39,6 +40,25 @@ M.setup = function()
 			prefix = "",
 		},
 	}
+=======
+  local config = {
+    virtual_text = false, -- disable virtual text
+    signs = {
+      active = signs, -- show signs
+    },
+    update_in_insert = false,  -- Don't update in Insert
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = true,
+      style = "minimal",
+      border = "rounded",
+      source = "always",
+      header = "",
+      prefix = "",
+    },
+  }
+>>>>>>> 7ac961c (Apply lsp settings from old confg)
 
 	vim.diagnostic.config(config)
 
@@ -71,9 +91,15 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+<<<<<<< HEAD
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
+=======
+  -- if client.name == "tsserver" then
+  --   client.resolved_capabilities.document_formatting = false
+  -- end
+>>>>>>> 7ac961c (Apply lsp settings from old confg)
 
 	if client.name == "sumneko_lua" then
 		client.server_capabilities.documentFormattingProvider = false
