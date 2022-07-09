@@ -5,13 +5,14 @@ end
 
 local servers = {
   "sumneko_lua",
-  "cssls",
-  "html",
-  "tsserver",
-  "pyright",
-  "bashls",
-  "jsonls",
-  "yamlls",
+  -- I don't use these language servers
+  -- "cssls",
+  -- "html",
+  -- "tsserver",
+  -- "pyright",
+  -- "bashls",
+  -- "jsonls",
+  -- "yamlls",
 }
 
 lsp_installer.setup()
@@ -29,15 +30,15 @@ for _, server in pairs(servers) do
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
-  if server == "sumneko_lua" then
-    local sumneko_opts = require "user.lsp.settings.sumneko_lua"
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-  end
+  -- if server == "sumneko_lua" then
+  --   local sumneko_opts = require "user.lsp.settings.sumneko_lua"
+  --   opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+  -- end
 
-  if server == "pyright" then
-    local pyright_opts = require "user.lsp.settings.pyright"
-    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
+  -- if server == "pyright" then
+  --   local pyright_opts = require "user.lsp.settings.pyright"
+  --   opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+  -- end
 
   lspconfig[server].setup(opts)
 end

@@ -27,7 +27,7 @@ M.setup = function()
     signs = {
       active = signs, -- show signs
     },
-    update_in_insert = true,
+    update_in_insert = false,  -- Don't update in Insert
     underline = true,
     severity_sort = true,
     float = {
@@ -72,9 +72,9 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
-  end
+  -- if client.name == "tsserver" then
+  --   client.resolved_capabilities.document_formatting = false
+  -- end
 
   if client.name == "sumneko_lua" then
     client.resolved_capabilities.document_formatting = false
