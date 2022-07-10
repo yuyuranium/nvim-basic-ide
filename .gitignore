@@ -1,3 +1,6 @@
+# Project settings
+lua/user/project-settings.lua
+
 # Compiled Lua sources
 luac.out
 
