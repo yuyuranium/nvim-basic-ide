@@ -59,3 +59,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt.colorcolumn = { 72 }
   end,
 })
+
+-- lua and python use 2 space for indention
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lua", "python" },
+  callback = function()
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop = 2
+  end,
+})
