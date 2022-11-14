@@ -26,6 +26,12 @@ npairs.setup({
 	},
 })
 
+local Rule = require "nvim-autopairs.rule"
+npairs.remove_rule('`')
+npairs.add_rules {
+  Rule('`', '`', 'javascript')
+}
+
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
