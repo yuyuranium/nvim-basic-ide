@@ -74,6 +74,10 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
 -- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)  -- I don't use lazygit
+keymap("n", "<leader>gj", "<cmd>Gitsign next_hunk<CR>", opts)
+keymap("n", "<leader>gk", "<cmd>Gitsign prev_hunk<CR>", opts)
+keymap("n", "<leader>gg", "<cmd>Gitsign blame_line<CR>", opts)
+keymap("n", "<leader>gp", "<cmd>Gitsign preview_hunk<CR>", opts)
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
