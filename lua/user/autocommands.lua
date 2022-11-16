@@ -60,9 +60,16 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 
 -- Auto colorcolumn for some filetypes
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c", "cpp", "verilog", "systemverilog" },
+  pattern = { "c", "cpp", "java" },
   callback = function()
     vim.opt.colorcolumn = { 80 }
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "verilog", "systemverilog" },
+  callback = function()
+    vim.opt.colorcolumn = { 100 }
   end,
 })
 
