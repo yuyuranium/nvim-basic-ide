@@ -88,3 +88,16 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt.tabstop = 2
   end,
 })
+
+
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
+	callback = function()
+		vim.cmd("set rnu")
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
+	callback = function()
+		vim.cmd("set nornu")
+	end,
+})
