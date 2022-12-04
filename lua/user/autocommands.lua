@@ -59,17 +59,21 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 })
 
 -- Auto colorcolumn for some filetypes
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c", "cpp", "java" },
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "c", "cpp" },
   callback = function()
     vim.opt.colorcolumn = { 80 }
+    vim.opt.shiftwidth = 4
+    vim.opt.tabstop = 4
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
   pattern = { "verilog", "systemverilog" },
   callback = function()
     vim.opt.colorcolumn = { 100 }
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop = 2
   end,
 })
 
@@ -81,23 +85,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- lua and python use 2 space for indention
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "lua", "python" },
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "lua", "python", "java" },
   callback = function()
     vim.opt.shiftwidth = 2
     vim.opt.tabstop = 2
   end,
 })
-
---
--- vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
--- 	callback = function()
--- 		vim.cmd("set rnu")
--- 	end,
--- })
---
--- vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
--- 	callback = function()
--- 		vim.cmd("set nornu")
--- 	end,
--- })
