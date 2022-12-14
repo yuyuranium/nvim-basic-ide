@@ -84,9 +84,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- lua and python use 2 space for indention
+-- lua and java use 2 space for indention
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
-  pattern = { "lua", "python", "java" },
+  pattern = { "lua", "java" },
   callback = function()
     vim.opt.shiftwidth = 2
     vim.opt.tabstop = 2
