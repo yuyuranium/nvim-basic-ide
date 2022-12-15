@@ -21,4 +21,5 @@ require "user.alpha"
 require "user.lsp"
 require "user.dap"
 require "user.surround"
+require "user.exrc"
 pcall(require, "user.project-settings")
