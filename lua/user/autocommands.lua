@@ -62,18 +62,20 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
   pattern = { "c", "cpp" },
   callback = function()
-    vim.opt.colorcolumn = { 80 }
-    vim.opt.shiftwidth = 4
-    vim.opt.tabstop = 4
+    vim.opt_local.textwidth = 80
+    vim.opt_local.colorcolumn = { 80 }
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
   end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
   pattern = { "verilog", "systemverilog" },
   callback = function()
-    vim.opt.colorcolumn = { 100 }
-    vim.opt.shiftwidth = 2
-    vim.opt.tabstop = 2
+    vim.opt_local.textwidth = 100
+    vim.opt_local.colorcolumn = { 100 }
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
   end,
 })
 
