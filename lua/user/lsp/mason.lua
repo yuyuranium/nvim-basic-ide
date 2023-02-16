@@ -1,9 +1,9 @@
 local servers = {
 	"sumneko_lua",
-	"pyright",
   "clangd",
   "svlangserver",
   -- I don't use these language servers
+	-- "pyright",
 	-- "cssls",
 	-- "html",
 	-- "tsserver",
