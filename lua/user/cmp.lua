@@ -95,7 +95,15 @@ cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
+      local content = vim_item.abbr
+      local ELLIPSIS_CHAR = '…'
+      local MAX_LABEL_WIDTH = 25
+      local get_ws = function (max, len)
+        return (" "):rep(max - len)
+      end
+
 			vim_item.kind = kind_icons[vim_item.kind]
+
 			vim_item.menu = ({
 				nvim_lsp = "",
 				nvim_lua = "",
@@ -104,6 +112,12 @@ cmp.setup({
 				path = "",
 				emoji = "",
 			})[entry.source.name]
+
+      if #content > MAX_LABEL_WIDTH then
+        vim_item.abbr = vim.fn.strcharpart(content, 0, MAX_LABEL_WIDTH) .. ELLIPSIS_CHAR
+      else
+        vim_item.abbr = content .. get_ws(MAX_LABEL_WIDTH, #content)
+      end
 			return vim_item
 		end,
 	},
