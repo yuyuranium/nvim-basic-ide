@@ -22,6 +22,26 @@ function M.config()
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
   end
 
+  local config = {
+    virtual_text = true,
+    signs = {
+      active = signs,
+    },
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = true,
+      style = "minimal",
+      border = "rounded",
+      source = "always",
+      header = "",
+      prefix = "",
+    },
+  }
+
+  vim.diagnostic.config(config)
+
   local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
