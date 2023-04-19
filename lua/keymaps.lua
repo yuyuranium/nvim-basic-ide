@@ -29,8 +29,12 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<TAB>", ":bnext<CR>", opts)
+keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
+
+-- Easy way to go to line head and tail
+keymap("n", "H", "^", opts)
+keymap("n", "L", "$", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -42,8 +46,6 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -62,7 +64,10 @@ keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>gj", "<cmd>Gitsign next_hunk<CR>", opts)
+keymap("n", "<leader>gk", "<cmd>Gitsign prev_hunk<CR>", opts)
+keymap("n", "<leader>gg", "<cmd>Gitsign blame_line<CR>", opts)
+keymap("n", "<leader>gp", "<cmd>Gitsign preview_hunk<CR>", opts)
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
