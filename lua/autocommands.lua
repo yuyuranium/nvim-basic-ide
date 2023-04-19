@@ -51,3 +51,31 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     end
   end,
 })
+
+-- Auto colorcolumn for some filetypes
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.opt_local.textwidth = 80
+    vim.opt_local.colorcolumn = { 80 }
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "verilog", "systemverilog" },
+  callback = function()
+    vim.opt_local.textwidth = 100
+    vim.opt_local.colorcolumn = { 100 }
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "gitcommit" },
+  callback = function()
+    vim.opt.colorcolumn = { 72 }
+  end,
+})
