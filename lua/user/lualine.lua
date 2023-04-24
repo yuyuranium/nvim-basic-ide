@@ -47,7 +47,7 @@ function M.config()
     options = {
       globalstatus = true,
       icons_enabled = true,
-      theme = "auto",
+      theme = "darkplus_alt",
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
       disabled_filetypes = { "alpha", "dashboard" },
