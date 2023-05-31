@@ -10,6 +10,11 @@ All the included plugins are pinned to a version that ensures they are compatibl
 
 As I mentioned, this config is meant as a starting point for people new to Neovim who want a familiar IDE experience. The config has a very simple structure that makes it easy to add new plugins.
 
+### Migration guide to lazy from packer
+
+Now this config uses `lazy.nvim` as a plugin manager, so if you are migrating from packer you should probably remove
+`$HOME/.local/share/nvim` and re-open nvim to re-install the plugins to not face any issues.
+
 ## Install Neovim 0.9
 
 You can install Neovim with your package manager e.g. brew, apt, pacman etc.. but remember that when you update your packages Neovim may be upgraded to a newer version.
@@ -127,7 +132,7 @@ M.servers = {
 	"bashls",
 	"jsonls",
 	"yamlls",
-    "terraform_lsp" -- New LSP
+    	"terraform_lsp" -- New LSP
 }
 ```
 
@@ -143,8 +148,7 @@ Make sure the formatter or linter is installed and add it to this setup function
 
 ### You can install new plugins here: [plugins](https://github.com/LunarVim/nvim-basic-ide/tree/master/lua/user)
 
-Just make a new file with your plugin and the configuration in it,
-[Which-key](https://github.com/LunarVim/nvim-basic-ide/blob/master/lua/user/which-key.lua) file is a very good example of how you would do it.
+Heres the wiki for installing new plugins refer to this: [wiki](https://github.com/LunarVim/nvim-basic-ide/wiki/adding_new_plugins)
 
 ## Plugins
 
