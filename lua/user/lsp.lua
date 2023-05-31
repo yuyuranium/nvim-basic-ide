@@ -16,32 +16,6 @@ function M.config()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
-  local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-  end
-
-  local config = {
-    virtual_text = true,
-    signs = {
-      active = signs,
-    },
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-    float = {
-      focusable = true,
-      style = "minimal",
-      border = "rounded",
-      source = "always",
-      header = "",
-      prefix = "",
-    },
-  }
-
-  vim.diagnostic.config(config)
-
   local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
@@ -109,7 +83,7 @@ function M.config()
     signs = {
       active = signs,
     },
-    update_in_insert = true,
+    update_in_insert = false,
     underline = true,
     severity_sort = true,
     float = {
