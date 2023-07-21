@@ -34,6 +34,10 @@ function M.config()
       }
     end
   end
+
+  -- add support for bsv
+  local ft = require "Comment.ft"
+  ft.bsv = {'//%s', '/*%s*/'}
 end
 
 return M

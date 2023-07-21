@@ -18,6 +18,25 @@ function M.config()
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
   local diagnostics = null_ls.builtins.diagnostics
 
+  local function lsp_keymaps()
+    local opts = { noremap = true, silent = true }
+    local keymap = vim.keymap.set
+    keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    keymap("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+    keymap("n", "<leader>lI", "<cmd>Mason<cr>", opts)
+    keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+    keymap("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
+    keymap("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
+    keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  end
+
   -- https://github.com/prettier-solidity/prettier-plugin-solidity
   null_ls.setup {
     debug = false,
@@ -29,7 +48,13 @@ function M.config()
       formatting.stylua,
       formatting.google_java_format,
     },
+    on_attach = lsp_keymaps
   }
+
+  local require_ok, conf_opts = pcall(require, "null_ls_settings.bsc")
+  if require_ok then
+    null_ls.register(conf_opts)
+  end
 end
 
 return M

@@ -13,6 +13,12 @@ function M.config()
         cterm_color = "65",
         name = "Zsh",
       },
+      bsv = {
+        icon = "",
+        color = "#51a0cf",
+        cterm_color = "74",
+        name = "Bsv",
+      }
     },
     color_icons = true,
     default = true,
