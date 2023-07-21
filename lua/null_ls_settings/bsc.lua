@@ -13,7 +13,7 @@ return h.make_builtin({
   filetypes = { "bsv" },
   generator_opts = {
     command = "bsc",
-    args = { "-sim", "-bdir", "/tmp", "$FILENAME" },
+    args = { "-sim", "-bdir", "/tmp", "-p", ".:%/Libraries:$DIRNAME", "-u", "$FILENAME" },
     to_stdin = false,
     from_stderr = true,
     to_temp_file = true,
