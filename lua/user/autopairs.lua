@@ -15,7 +15,8 @@ local M = {
 }
 
 function M.config()
-  require("nvim-autopairs").setup {
+  local npairs = require("nvim-autopairs")
+  npairs.setup {
     check_ts = true, -- treesitter integration
     disable_filetype = { "TelescopePrompt" },
     ts_config = {
@@ -35,6 +36,7 @@ function M.config()
       highlight_grey = "LineNr",
     },
   }
+  npairs.add_rules(require 'rules.endwise-bsv')
 
   local cmp_autopairs = require "nvim-autopairs.completion.cmp"
   local cmp = require "cmp"
